@@ -1,0 +1,24 @@
+{Title}
+Love Letter 3
+
+{Content}
+Dear {},
+You are extremly {} and I {} you!
+I want to kiss your {} {} times.
+You make my {} burn with desire.
+When I first saw you, I {} stared at you and fell in love.
+Will you {} out with me?
+Don`t let your parents discourage you, {} are just jealous.
+Yours forever, {}
+
+{Prompts}
+Person in Room
+Adjective
+Verb
+Part of the Body
+Number
+Noun
+Adverb
+Verb
+Pronoun Plural
+Other Person in Room
