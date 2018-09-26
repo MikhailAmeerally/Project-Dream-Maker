@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <title>Computing Science 309 Warehouse Wars</title>
+        
+		<script language="javascript" src="jquery-3.1.1.min.js" > </script>
+		<link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
+
+		<script>
+
+            // Sockets of the player
+			var socket = null;
+			$(function() {
+				socket = new WebSocket('ws://cslinux.utm.utoronto.ca:10081');
+
+				socket.onopen = function(event) {
+                    console.log("Connected.");
+				};
+
+				socket.onclose = function(event) {
+					alert("Host closed the server.");
+				};
+
+				socket.onmessage = function(event) {
+					var eventData = JSON.parse(event.data);
+                    draw(eventData);
+				};
+
+			});
+
+            // Draw out the stage onto the HTML
+			function draw(gameStage) {
+				var mainStage = '<table>';
+
+        	 	for (var row = 0; row < gameStage.length; row++) {
+             		mainStage += '<tr>';
+             		for (var col = 0; col < gameStage[row].length; col++) {
+                 		mainStage += '<td><img src="' + gameStage[col][row]._imageSrc + '"/></td>';
+             		}
+        	 	}
+        	 	mainStage += '</table>';
+        	 	document.getElementById("stage").innerHTML = mainStage;
+            }
+
+            // players = [];
+            // gameWorld = null;
+
+            // $(function(){
+
+            //     // Initiate a new game world
+            //     gameWorld = new GameWorld(0, "stage");
+
+            //     // Start the game world
+            //     gameWorld.startGame();
+                
+            //     // Listen for keyboard
+            //     addEventListener('keydown', onControllerPress);
+            // });
+
+			// function onControllerPress(event) {
+            //     const KEY = event.key;
+
+            //     gameWorld.movePlayer(KEY);
+			// }
+
+
+		</script>
+		<style>
+			/* style parts of the legend, the controls and the elements in the stage appropriately */
+
+			body {
+				font-family: 'Changa', sans-serif;
+			}
+
+			#header {
+				font-size: 3.5em;
+			}
+
+			#legendHeader {
+				font-size: 2em;
+			}
+
+			#stage table {
+				border-collapse: collapse;
+			}
+			#stage td {
+				border: 1px solid black;
+			}
+			.main_controls {
+				background-color: #c6c6c6;
+				margin-left: 50px;
+				padding: 10px;
+				border: 1px solid black;
+			}
+
+			.main_controls td {
+				padding: 5px;
+			}
+
+			.medBtn {
+				height: 40px;
+				width: 100px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<center>
+			<h1 id="header">Warehouse Wars</h1>
+			<table>
+				<tr>
+					<td> <div id="stage"> </div></td> 
+					<td>
+						<center class="main_controls">
+							<h2 id="legendHeader">Legend</h2>
+							<table class="legend">
+								<tr>
+									<td> <img src="icons/blank.gif" id="blankImage" /> </td>
+									<td> <img src="icons/emblem-package-2-24.png" id="boxImage" /> </td>
+									<td> <img src="icons/face-cool-24.png" id="playerImage" /> </td>
+									<td> <img src="icons/face-devil-grin-24.png" id="monsterImage" /> </td>
+									<td> <img src="icons/wall.jpeg" id="wallImage" /> </td>
+								</tr>
+								<tr>
+									<td> Empty <br/> Square </td>
+									<td> Box </td>
+									<td> Player </td>
+									<td> Monster </td>
+									<td> Wall </td>
+								</tr>
+							</table>
+							<h2>Controls</h2>
+							<table class="controls">
+								<tr>
+									<td><img src="icons/north_west.svg" onclick="onScreenClick('q');" /></td>
+									<td><img src="icons/north.svg" onclick="onScreenClick('w');"/></td>
+									<td><img src="icons/north_east.svg" onclick="onScreenClick('e');" /></td>
+								</tr>
+								<tr>
+									<td><img src="icons/west.svg" onclick="onScreenClick('a');" /></td>
+									<td>&nbsp;</td>
+									<td><img src="icons/east.svg" onclick="onScreenClick('d');" /></td>
+								</tr>
+								<tr>
+									<td><img src="icons/south_west.svg" onclick="onScreenClick('z');" /></td>
+									<td><img src="icons/south.svg" onclick="onScreenClick('x');" /></td>
+									<td><img src="icons/south_east.svg" onclick="onScreenClick('c');" /></td>
+								</tr>
+							</table>
+							<button onclick="pauseGame()" id="pauseBtn" class="medBtn">Pause</button>
+							<button onclick="restartGame()" id="continueBtn" class="medBtn">Restart</button>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</center>
+	</body>
+</html>
+
