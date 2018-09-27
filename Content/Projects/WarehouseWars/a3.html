@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="../styles.css" type="text/css" />
+ 	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+ 	<script type="text/javascript" src="../js/jquery.min.js"></script>
+ 	<script type="text/javascript" src="../js/jquery.smint.js"></script>
+ 	<script type="text/javascript" src="../js/scroll.js"></script>
+<script>
+$(document).ready(function(){
+    $("#part4").click(function(){
+        $("part4-info").toggle();
+    });
+});
+</script>
+<style>
+body {
+	padding: 30px 50px;
+	font-family: "Source Sans Pro";
+}
+button {
+	font-size: 0.8em;
+}
+#part4-info {
+	display: none;
+}
+</style>
+
+    <title>CSC108H Spring 2018: Assignment 3</title>
+  </head>
+  
+  <body>
+	<h1>CSC108H Spring 2018: Assignment 3</h1>
+
+<!--
+<p>
+ lab will get you started on your first assignment! So, things you will be working on today, will be graded.
+</p>
+<p>
+As usual, while you're working on your lab today, show your work to your TA frequently, and feel free to ask
+them questions.
+</p>
+-->
+
+<h2>Introduction</h2>
+<p>
+For the assignment, you will be making a game called Warehouse Wars (the game was first built by <a href="http://www.cs.toronto.edu/~arnold/">Arnold Rosenbloom</a> and some of his classmates when they were in highschool).
+<br/>To make the game, you will be using a module called Pygame (installed in our lab) to help us build this game.
+<p>
+<blockquote>
+This top down game takes place in a warehouse. The player, is driving a forklift and can push boxes around the warehouse. The player can in fact push rows of boxes, vertically, horizontally or diagonally. Unfortunately there are monsters in the warehouse roaming around. If they touch the player, the player loses a life.</p>
+<p>
+But these monsters have a weakness. They must be able to move. If they are surrounded, for a certain amount of time, they lose their life and disappear. The forklift driver's job is to move boxes around the warehouse to surround each monster on all sides and remove them.</p><p>Just a reminder, the forklift can push more than a single box at a time, it can push a whole row, column or diagonal collection of boxes at a time, being forced to stop only when the leading box reaches an obstruction (i.e. monster or wall or the end of the stage).
+</p>
+</blockquote><a href="../labs/lab03.html">This lab</a> will help you get started on the basic components of this game. After your lab is complete, your game should function as follows (notice that the game shown in the GIF is incomplete; the players and monsters both never reach game over in this version).
+<p>
+
+<img src="wwgame_play.gif"/>
+</p>
+
+
+<h2>
+Part 0: Getting Started</h2>
+<p>
+Go through the <a href="../labs/lab03.html">"Getting Started on A3" Lab instructions</a> to get started on this assignment.<p>
+<!--<em>
+You may need to consult the following resources to figure out some pieces of the code:
+
+</em>-->
+</p>
+
+<h2>Part 1: The Player</h2>
+Modify KeyboardPlayer to handle the following:
+<ol>
+<li>The KeyboardPlayer should die if a Monster 'touches' them (that is, if a Monster asks the KeyboardPlayer to move OR if a KeyboardPlayer asks a monster to move, then the KeyboardPlayer dies). This makes it possible for a Monster to walk right past a KeyboardPlayer. It also makes your code simpler. The exception to this is obviously if you create a type of Monster that specifically dies when the player touches it.</li>
+<li>Add diagonal movement to the player (NOTE: you are allowed to change the keyboard buttons to be something other than the arrow keys if you wish, as long as it's intuitive for the player, and the controls are mentioned in a comment within your code or as game instructions).</li>
+</ol>
+
+<h2>Part 2: The Monsters</h2>
+<p>
+<h3>Task 1: Modify the Monster class</h3>
+Modify the Monster class to do the following:
+<ol>
+<li>Follow instructions in the last part of the lab. That is, add monsters to the stage. Make sure Monsters bounce off from other Actors on the stage.</li>
+<li>Complete the <code>is_dead</code> method so that they die when surrounded by boxes on all sides.</li>
+<li>Update <code>step</code> so that it checks if this Monster is dead before moving. If it is, this Monster Actor should be removed from the stage.</li>
+</ol>
+
+<h2>Part 3: The Boxes/Walls</h2>
+
+<ol><li>As described in lab, update Box class so they can be moved.</li>
+<li>As described in lab, make a Wall object - that is, an Actor that cannot be moved.</li>
+<li>Make a different type of Box that is sticky (use a different icon for this box), so that when a monster moves into it or it gets
+			moved into a monster, the monster ends up being stuck to the box
+			and can't move. Add some of these Sticky Boxes to the stage, in addition to the standard boxes.</li>
+			</ol>
+
+<hr/>
+
+<h2>Part 4: Enhancements (For Lecture Section 1 ONLY)</h2>
+
+If you are enrolled in Lecture Section 1 from 5-6pm, then click the button below to see the rest of the instructions in this section (worth 20% of your assignment 3 grade). <br/>If you are NOT enrolled in LEC0101, PLEASE SKIP THIS SECTION.<p>
+<button id="part4">Show/hide Part 4</button>
+<div id="part4-info">
+<p>
+For this part of the project, create a new folder called <b>part4</b> and download the <b>process_log.txt</b> into this folder. This log should be filled up as described in the file. <b>MAKE SURE TO FILL UP THIS FILE AS IT WILL AFFECT YOUR ASSESSMENT.</b> This log should <b>list all the features</b> that you have added, or even those that you have just attempted to add.
+</p>
+<p>
+For this part of the assignment, you have a few options. Either you may build on the current Warehouse Wars project (as described in the Option 1 section), or you may take your Adventure Game from Assignment 2 and modify it by using classes to add more features to the game (as described in Option 2 section). As a third option, you could try to create your own game, completely your choice, using all that we have learned so far.
+</p>
+<p class="red">
+<b>The only common requirement among these options is that:</b><br/>
+The game that you make <b>must</b> make use of object-oriented programming principles (i.e. use classes, inheritance, etc.)
+</p>
+<p>
+<span>Throughout this process, if there are any online resources or websites that you look at or use for inspiration, PLEASE MENTION IT IN YOUR PROCESS LOG.</span>
+</p>
+
+<h3>Option 1: Extreme Warehouse Wars</h3>
+
+<h4>Setup and Files</h4>
+<b>Copy</b> your current ww.py and wwgame.py files into your "part4" folder. Make all your changes to the game for this part over here, in these new files. Make sure you saved <a href="process_log.txt">process_log.txt</a> inside this "part4" folder as well. When you're handing in your assignment, you will hand in both your <b>original ww.py and wwgame.py</b> as well as a <b>zip</b> of everything you have in your part4 folder as <b>part4.zip</b>.
+
+<h4>Task 1: Add Special Monsters</h4>
+<ul><li>Add <b>three</b> different types of monsters in addition to the ones we already have. <br/>See below for suggestions of types of monsters you can add. (<b>Hint:</b> Inheritance could be useful here.)
+</li>
+<li>You should be using different icons to represent different types of monsters (see Open Source Icon links in the <a href="#ref">'references'</a> section below).
+</ul>
+
+<h4>Task 2: Add More Special Features</h4>
+Make the game your own. Add sound, new images, different goals, different levels, etc. List all these features in your process log file.
+
+<h4><em>List of Some Possible Enhancements</em></h4>
+Please make sure your process log files includes a list of any features you choose to implement. The following list is just a bunch of suggestions, not requirements, other than the fact that there should be at least three different types of monsters.
+<xmp>
+Monsters:
+	Types:
+		(_) At least three different types of monsters. Two
+			in addition to the standard type above.
+			Below are some suggestions.
+
+		Monsters that can be pushed
+		Monsters that can be squished and then die. They can be pushed by 
+			boxes until they can't be pushed further, and then they die.
+		Monsters that die when the player touches them
+		Monsters that randomly change direction
+		Monsters that find a direction that they can move
+		Monsters that, when they die, explode, removing boxes
+		Monsters that, when they die, explode, removing boxes and evolve into smarter monsters
+		Monsters that try to follow the player, wherever they are
+		Monsters that try to follow the player, when they 'see' them
+		Monsters that explode after living for some time
+		Monsters that explode when they get close enough to the player
+		Monsters that camoflage themselves as boxes for some time
+		Monsters that run away from the player
+
+KeyboardPlayer:
+	Features:
+		Change player icon depending on the direction they are moving
+		Two player game, both players try to kill the monsters
+		Add keyboard repeat behavour, so the player need only hold a key
+		Switch to numeric keypad, if available
+		Player can transport a limited number of times.
+
+Misc:
+	Different icons for different direction movement
+	Animations for actors. 
+</xmp>
+
+<h3>Option 2: Better Adventure Game</h3>
+
+<p>
+Remember that you <b>must</b> make use of <b><em>classes and inheritance</em></b> within your modified version of the game.
+</p>
+<p>
+To get started, create a new folder called "part4", and <b>copy</b> your old adventure game files into this folder. Make all your changes to the game for this part over here, in these new files. Save <a href="process_log.txt">process_log.txt</a> inside this "part4" folder as well. When you're handing in your assignment, you will hand in both your <b>ww.py and wwgame.py</b> from the previous parts, as well as a <b>zip</b> of everything you have in your part4 folder as <b>part4.zip</b>.
+<p>
+For this option, we want you to add things and change things about your game to make it better!</p>
+<h4>Task 1: Make it Object Oriented</h4>
+Make as much of the game as you can think of based around the use of classes. You should probably at least have a Player class to represent the player, a Location class to represent each location information, an Item class to represent each item information, etc. You can make the overall game simpler (change the whole story, map, number of locations, etc.) to make it easier to figure out how classes can be incorporated into it. If you're having trouble with this part, you can leave most of the game as is, but must at least use classes within your newer enhancements which you add in for Task 2.
+
+<h4>Task 2: Make the game your own</h4>
+<p>
+How do you make the game your own? That's completely up to you. The only requirement is you must use <b>classes and inheritance</b> in some way. 
+</p>
+<p>
+Some recommendations (none of these are requirements; just suggestions of ways you can improve the game):
+<ul>
+<li>You can change the story and setting of the game entirely, including location and item
+information, when game overs occur, when victory occurs, etc.</li>
+<li>You can limit the number of moves that the player can make before they have to reach the goal location, and if they don't reach it within the allowed num of moves then time is up
+and game is over.</li>
+<li>You can change the map. Make it more interesting, more maze-like with more areas
+blocked off. Add in more locations. Or you can hide the map from the player so they only
+see text, to make them feel even more lost, etc.</li>
+<li>You can also add in more items. Allow the user to use the items within the game in
+different ways to obtain more items, or make the story progress, etc.</li>
+</ul>
+<p>One key recommendation is adding in more puzzles to the game. For a good description of the reasoning behind puzzles, and common types of puzzles, see <a href="https://h2g2.com/edited_entry/A22196289">this page all about puzzles</a>
+</p><p>
+Some puzzles are rather elaborate, relying on performing specialized verbs on multiple items or imposing specific timing requirements. Your puzzles can be simple -- finding a key in a remote location from the door that it opens -- or more complex. Regardless, implementing puzzles will require that you extend the commands you support and/or extend the information you store in your data files. You could also add in mini-games within certain locations of your game.</p>
+<p>
+The text files that you use for this part can either follow the same format that the files you used for Assignment 2 had, or they can be completely different. The only requirement is that ALL game data must be stored inside these text files, and read by your main adventure.py file. DO NOT hard-code anything about the game locations/items/etc. directly into your Python file. Store them in the text files, and read them in.
+</p>
+<p>
+If you want to change around these text files, add in other extra text files, etc. you are free to do so!
+</p>
+<p>
+For inspiration, you can play some actual text adventure games online like <a href="http://www.web-adventures.org/cgi-bin/webfrotz?s=ZorkDungeon">Zork</a>.
+</p>
+<p>
+If you choose this option, your <b>process log</b> file will be the main way we evaluate your work, so make sure it's <b>clear, detailed and honest</b> about your process as you worked on this project. <a href="#process">Read more</a> about the process log below.
+</p>
+
+<h3>Option 3: Make your own game</h3>
+<p>
+For this option, you can create any game you like, but it has to be <b>your own work</b>. If you use any online resources, MAKE SURE you include a link to it in your process_log file. If you choose this option, your <b>process log</b> file will be the main way we evaluate your work, so make sure it's <b>clear, detailed and honest</b> about your process as you worked on this project. <a href="#process">Read more</a> about the process log below.
+</p>
+<p>Again, a requirement for this part is that your game must use <b>classes and inheritance</b> in some way.
+</p>
+
+<a name="process"></a>
+<h3><em>More about the process log file</em></h3>
+<p>
+This text file is meant to be a report of your process as you worked on this part of the project. You MUST complete and hand in this file to earn a mark for Part 4.
+</p>
+<b>What to include in the log?</b>
+<ul>
+<li>What enhancements did you want to add? (List any that you tried to add, even if your
+attempts didn't work out)</li>
+<li>For attempts that didn't work: Why did it not work? What did you struggle with?</li>
+<li>What worked? What did you enjoy?</li>
+<li>If you had more time, what would you have added?</li>
+<li>Any inspiration or online resources you may have used to help you with enhancements</li>
+<li>etc.</li>
+</ul>
+<p>
+Even if you did NOT finish adding in a feature, but made considerable attempts at doing so, MAKE SURE to include this within your log file.
+</p>
+</div>
+<hr/>
+<h2>What to hand in</h2>
+<a name="summary"></a>
+<h2>Summary of Main Game Requirements</h2>
+<xmp>
+Monsters:
+	Behaviour:
+		(_) Modify the existing Monster so that, when they hit another
+			actor, they bounce back (return in the same direction
+			they came).
+		(_) Modify the existing Monster so that they 
+			die when surrounded by boxes on all sides.
+
+Boxes/Walls:
+	Types:
+		(_) Boxes that can be moved/pushed.
+		(_) A Wall, that is, an Actor that can't be moved 
+		(_) Boxes that are sticky, so that when a monster moves into it or it gets
+			moved into a monster, the monster ends up being stuck to the box
+			and can't move.
+			
+KeyboardPlayer:
+	Features:
+		(_) KeyboardPlayer dies if monster 'touches' them. The Monster has to ask the 
+			KeyboardPlayer to move. Similarly, if a KeyboardPlayer
+			asks a monster to move, the KeyboardPlayer dies. This makes
+			it possible for a Monster to walk right past a KeyboardPlayer.
+			It also makes your code simpler.
+			The exception to this is obviously if you create a type of Monster
+			that specifically dies when the player touches it.
+		(_) Add diagonal movement to the player
+
+Misc: 
+	(_) Game over
+	(_) Nothing can move off the stage
+	(_) Different icons for different types of things
+</xmp>
+
+<h2>Summary of Part 4 Requirements (For Lecture Section 1 ONLY)</h2>
+
+<xmp>
+(_) part4.zip which includes:
+		(_) a game that uses classes and inheritance in some way
+		(_) process_log.txt
+</xmp>
+
+<a name="ref"></a>
+<h2>References</h2>
+Some references that could come in handy:
+<ul>
+<li>Pygame basics: <a href="http://inventwithpython.com/pygame/chapter2.html">http://inventwithpython.com/pygame/chapter2.html</a></li>
+<li>Pygame with keyboard: <a href="https://www.pygame.org/docs/ref/key.html">https://www.pygame.org/docs/ref/key.html</a></li>
+<li><a href="http://davidcrow.ca/article/634/open-source-icons">Open Source Icons</a>, <a href="https://sourceforge.net/projects/openiconlibrary/">The Open Icon Library</a></li>
+</ul>
+
+
+</html>
+
+
