@@ -13,7 +13,7 @@ def subtract(a,b):
 
 
 def divide(a,b):
-    return a / b
+    return "undefined" if b == 0 else a // b #Use integer division
 
 
 def  multiply(a,b):

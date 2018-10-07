@@ -54,3 +54,48 @@ class TestSubtraction(unittest.TestCase):
         self.assertEqual(subtract(-5, -5), 0, "-5 - -5")
         self.assertEqual(subtract(-50, -5), -45, "-50 + -5")
         self.assertEqual(subtract(-50,50), -100, "-50 -50")
+
+class TestMultiplication(unittest.TestCase):
+
+    def test_mult_zero(self):
+        self.assertEqual(multiply(1, 0), 0, "1 * 0")
+        self.assertEqual(multiply(15, 0), 0, "15 * 0")
+
+    def test_mult_single_digits(self):
+        self.assertEqual(multiply(1, 1), 1, "1 * 1")
+        self.assertEqual(multiply(11, 1), 11, "11 * 1")
+
+    def test_mult_more_than_one_digit(self):
+        self.assertEqual(multiply(20, 10), 200, "20 * 10")
+        self.assertEqual(multiply(10, 3), 30, "10 * 3")
+        self.assertEqual(multiply(3, 30), 90, "3 * 30")
+        self.assertEqual(multiply(120, 10), 1200, "120 * 10")
+
+    def test_mult_negatives(self):
+        self.assertEqual(multiply(5,-1), -5, "5 * -1")
+        self.assertEqual(multiply(-5, 10), -50, "-5 * 10")
+        self.assertEqual(multiply(-5, -5), 25, "-5 * -5")
+        self.assertEqual(multiply(-50, -5), 250, "-50 * -5")
+
+class TestDivision(unittest.TestCase):
+
+    def test_divide_zero(self):
+        self.assertEqual(divide(1, 0), "undefined", "1 / 0")
+        self.assertEqual(divide(0, 15), 0, "0 / 15")
+
+    def test_divide_by_one(self):
+        self.assertEqual(divide(1, 1), 1, "1 / 1")
+        self.assertEqual(divide(11, 1), 11, "11 / 1")
+
+    def test_divide_integer_divide(self):
+        self.assertEqual(divide(20, 10), 2, "20 / 10")
+        self.assertEqual(divide(20, 11), 1, "20 / 11")
+        self.assertEqual(divide(100, 3), 33, "100 / 3")
+        self.assertEqual(divide(3000, 123), 24, "3000 / 123")
+
+    def test_divide_negatives(self):
+        self.assertEqual(divide(5,-1), -5, "5 / -1")
+        self.assertEqual(divide(-15, 10), -2, "-15 / 10")
+        self.assertEqual(divide(-5, -5), 1, "-5 / -5")
+        self.assertEqual(divide(-50, -5), 10, "-50 / -5")
+        self.assertEqual(divide(-50,50), -1, "-50 -50")
