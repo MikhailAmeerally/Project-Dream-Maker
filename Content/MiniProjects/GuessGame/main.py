@@ -1,20 +1,28 @@
 import random
-
+from functions import *
 #Generating a random number from 1 to 10
-secretNumber = random.randint(1,10)
+secret_number = random.randint(1,10)
 
-userGuess = None
+user_guess = None
+keep_guessing = True
 
-while userGuess != secretNumber:
-    userGuess = input("Enter a number from 1 to 10: ")
-    userGuess = int(userGuess)
-    if userGuess > secretNumber:
-        print("Too high")
-    elif userGuess < secretNumber:
-        print("Too low.")
+while keep_guessing:
+    user_guess = input("Enter a number from 1 to 10: ")
 
-if(userGuess == secretNumber):
-    print("You win!")
+    help_or_exit = parse_user_guess(user_guess)
+
+    print(help_or_exit)
+    if(help_or_exit):
+        continue
+
+    user_guess = int(user_guess)
+    state = guess_number(user_guess,secret_number)
+    keep_guessing,response = not state[0], state[1]
+
+    print(response)
+
+
+print("You win!")
 
 '''
 Solution for GuessGame
