@@ -4,11 +4,12 @@ def convertToPigLatin(phrase):
     :return: string
     '''
     newPhrase =  ""
+    phrase = phrase.lower()
     phrase = phrase.split(" ")
     for word in phrase:
         newWord = convertWord(word)
         newPhrase += newWord + " "
-    return newPhrase
+    return newPhrase.strip()
 
 def convertWord(word):
     '''
@@ -17,9 +18,9 @@ def convertWord(word):
     '''
     vowels = ['a', 'e', 'i', 'o', 'u']
     clusters = ['st', 'sm', 'gl', 'tr', 'bl', 'cl', 'pl', 'sl', 'br', 'cr', 'dr',
-                'fr', 'gr', 'sc', 'sp', 'tw', 'kn']
+                'fr', 'gr', 'sc', 'sp', 'tw', 'kn', 'th']
 
-    print(word)
+
     if word[0] in vowels:
         return pigLatinVowel(word)
     elif word[0:2] in clusters:
