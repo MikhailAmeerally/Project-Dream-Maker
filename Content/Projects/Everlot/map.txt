@@ -1,0 +1,68 @@
+LOCATION
+Meadows
+[description of Meadows]
+START
+[long description]
+END
+ACTIONS
+North : None
+East : Town
+South : Flower Fields
+West : None
+END
+
+LOCATION
+Flower Fields
+You are in a field of flowers that look strange. They are different colours; some are blue, some are red, some are green.
+START
+You are in a field of flowers that look strange. They are different colours; some are blue, some are red, some are green.
+There is no water anywhere in sight, yet these flowers are thriving.
+END
+ACTIONS
+Smell Flowers : The flower turns into a giant Carnivorous Venus Fly Trap. You now realize why they have been thriving. You have been eaten by the flower.
+North : Meadows
+East : Dark Knight's Castle
+South : Troll Bridge
+West : Bogs
+END
+
+LOCATION
+Town
+You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+START
+[detailed description]
+END
+ACTIONS
+North : None
+East : Armory
+South : Something
+West : Meadows
+END
+
+LOCATION
+Armory
+You enter the armory.
+START
+[longer description]
+END
+ACTIONS
+North : None
+East : None
+South : None
+West : Town
+Buy : You can buy items from the blacksmith. Basic Sword - $100 ; Basic Shield - $100 ; Chain-mail - $50; Crafted Stick - $10
+END
+
+LAYOUT
+              Meadows >>> Town >>> Armory
+              |||||        |||
+              |||||        Something
+              |||||
+  Bogs <<<<<<Flower Fields >>>>>> Dark Knight's Castle
+  |||          //
+  |||        //
+  |||      //
+  Troll Bridge
+  |||
+  Merlin's Tower
+END
