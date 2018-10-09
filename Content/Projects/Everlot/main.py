@@ -1,74 +1,29 @@
-#imports
-
-def getMapLayout(fileDescriptor):
-    layout = ""
-    line = fileDescriptor.readline().strip()
-    while (line != "END"):
-        layout = layout + line + "\n"
-        line = fileDescriptor.readline().strip()
-    return layout
-
-def getTitle(fileDescriptor):
-    return fileDescriptor.readline().strip()
-
-def getShortDescription(fileDescriptor):
-    shortDescription = ""
-    line = fileDescriptor.readline()
-    while(line.strip() != "START"):
-        shortDescription = shortDescription + line.strip()
-        line = fileDescriptor.readline()
-    return shortDescription
-
-def getLongDescription(fileDescriptor):
-    longDescription = ""
-    line = fileDescriptor.readline()
-    while(line.strip() != "END"):
-        longDescription = longDescription + line.strip()
-        line = fileDescriptor.readline()
-    return longDescription
-
-def getActionsForLocation(fileDescriptor):
-    actions = {}
-    line = fileDescriptor.readline()
-    while(line.strip() != "END"):
-        action, consequence = line.split(":")
-        actions[action] = consequence
-        line = fileDescriptor.readline()
-    return actions
+# imports
+from setup import *
+from game import startGame
 
 
-
-
-#Player
-inventory = {'spells':[], 'weapons':[], 'items':[]}
-health = 100
-status = "Knave"
-current_room = ""
-actions = []
-
-#Map
-map = {}
-layout = ""
-
-file = open('map.txt')
+file = open('world.txt')
 
 line = file.readline()
-while(line):
+while line:
 
     if line.strip() == "LOCATION":
         title = getTitle(file)
         short = getShortDescription(file)
         long = getLongDescription(file)
-        map[title] = {"short description":short, "long description":long}
+        world[title] = {"short description": short, "long description": long, "visited": False}
 
     if line.strip() == "LAYOUT":
-        layout = getMapLayout(file)
-    line = file.readline()
+        world['layout'] = getWorldLayout(file)
 
     if line.strip() == "ACTIONS":
         actionsList = getActionsForLocation(file)
-        map[title]['actions'] = actionsList
+        world[title]['actions'] = actionsList
+
+    line = file.readline()
 
 
+startGame()
 
 
