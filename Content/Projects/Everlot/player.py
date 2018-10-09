@@ -15,6 +15,9 @@ def move(direction, allActionsForLocation):
 def playerRequestToMove(action):
     return action in ['North', 'South', 'East', 'West']
 
+def playerRequestToBuy(action):
+    return "Buy" in action
+
 
 def performAction(action, allActionsForLocation):
 
@@ -22,13 +25,21 @@ def performAction(action, allActionsForLocation):
 
         if playerRequestToMove(action):
             consequence = move(action, allActionsForLocation)
+            return True, consequence
+        elif playerRequestToBuy(action):
+            processTransaction(action.strip().split()[1], allActionsForLocation[action])
         else:
             consequence = allActionsForLocation[action]
 
-        return (True, consequence)
+        return (False, consequence)
     else:
         return (False, "Not a real move here.")
 
+def processTransaction(itemName, cost):
+    if itemName in list(inventory['weapons'].keys()) || itemName in list(inventory['items'].keys()):
+        return False, 0
+    else:
+        
 
 
 
