@@ -50,7 +50,11 @@ North : None
 East : None
 South : None
 West : Town
-Buy : You can buy items from the blacksmith. Basic Sword - $100 ; Basic Shield - $100 ; Chain-mail - $50; Crafted Stick - $10
+Ask Blacksmith for Equipment : You can buy items from the blacksmith. Basic Sword - $100 ; Basic Shield - $100 ; Chain-mail - $50; Crafted Stick - $10. He claims he found the stick in the woods and he liked the woodwork.
+Buy Sword : 100
+Buy Shield : 100
+Buy Chain-mail : 50
+Buy Crafted Stick : 10
 END
 
 LAYOUT
