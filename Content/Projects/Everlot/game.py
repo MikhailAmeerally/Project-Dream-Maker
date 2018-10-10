@@ -2,27 +2,23 @@ from setup import *
 from player import *
 
 
-def startGame():
-    global player_location
-    player_location = list(world.keys())[0]
-    while True:
-        print(player_location)
-        displayDescription(player_location)
-        displayActions(list(getLocationActions(player_location).keys()))
-        displayWorld()
+
+def startGame(world, player):
+
+    player['location'] = list(world.keys())[0]
+    gameOver = False
+    while player['health'] != 0 and not gameOver:
+        print(player['location'])
+        displayDescription(player['location'])
+        displayActions(list(getLocationActions(player['location']).keys()))
+        #displayWorld()
         userCommand = input("Enter a Command: ")
-        isMove, consequence = performAction(userCommand, getLocationActions(player_location))
-        if isMove:
-            if consequence != "None":
-                player_location = consequence
-            else:
-                print("Cannot move that way.")
-        else:
-            print(consequence)
+        performAction(userCommand, getLocationActions(player['location']), player)
 
 
 
 def displayDescription(location):
+    print(location)
     if world[location]['visited']:
         print(world[location]['short description'])
     else:

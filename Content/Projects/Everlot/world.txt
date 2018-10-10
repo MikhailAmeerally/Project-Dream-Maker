@@ -5,10 +5,10 @@ START
 [long description]
 END
 ACTIONS
-North : None
-East : Town
-South : Flower Fields
-West : None
+Go North : None
+Go East : Town
+Go South : Flower Fields
+Go West : None
 END
 
 LOCATION
@@ -19,11 +19,11 @@ You are in a field of flowers that look strange. They are different colours; som
 There is no water anywhere in sight, yet these flowers are thriving.
 END
 ACTIONS
-Smell Flowers : The flower turns into a giant Carnivorous Venus Fly Trap. You now realize why they have been thriving. You have been eaten by the flower.
-North : Meadows
-East : Dark Knight's Castle
-South : Troll Bridge
-West : Bogs
+Smell Flowers : The flower turns into a giant Carnivorous Venus Fly Trap. You now realize why they have been thriving. You have been eaten by the flower : kill
+Go North : Meadows
+Go East : Dark Knight's Castle
+Go South : Troll Bridge
+Go West : Bogs
 END
 
 LOCATION
@@ -33,10 +33,10 @@ START
 [detailed description]
 END
 ACTIONS
-North : None
-East : Armory
-South : Something
-West : Meadows
+Go North : None
+Go East : Armory
+Go South : Something
+Go West : Meadows
 END
 
 LOCATION
@@ -46,15 +46,11 @@ START
 [longer description]
 END
 ACTIONS
-North : None
-East : None
-South : None
-West : Town
-Ask Blacksmith for Equipment : You can buy items from the blacksmith. Basic Sword - $100 ; Basic Shield - $100 ; Chain-mail - $50; Crafted Stick - $10. He claims he found the stick in the woods and he liked the woodwork.
-Buy Sword : 100
-Buy Shield : 100
-Buy Chain-mail : 50
-Buy Crafted Stick : 10
+Go North : None
+Go East : None
+Go South : None
+Go West : Town
+Talk to Blacksmith: You can buy items from the blacksmith. Basic Sword - 100 ; Basic Shield - 100 ; Chainmail - 50; Crafted Stick - 10. He claims he found the stick in the woods and he liked the woodwork.
 END
 
 LAYOUT

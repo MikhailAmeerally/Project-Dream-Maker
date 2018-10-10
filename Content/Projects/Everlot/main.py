@@ -2,6 +2,13 @@
 from setup import *
 from game import startGame
 
+inventory = []
+health = 100
+status = "Knave"
+player_location = ""
+money = 50
+player = {"inventory": inventory, "health": health, "status":status, "location": player_location, "money":money}
+
 
 file = open('world.txt')
 
@@ -24,6 +31,6 @@ while line:
     line = file.readline()
 
 
-startGame()
+startGame(world, player)
 
 

@@ -34,8 +34,10 @@ def getActionsForLocation(fileDescriptor):
     actions = {}
     line = fileDescriptor.readline()
     while(line.strip() != "END"):
-        action, consequence = line.split(":")
-        actions[action.strip()] = consequence.strip()
+        action= line.split(":")
+        actions[action[0].strip()] = [action[1].strip()]
+        if len(action) > 2:
+            actions[action[0].strip()].append(action[2].strip())
         line = fileDescriptor.readline()
     return actions
 
