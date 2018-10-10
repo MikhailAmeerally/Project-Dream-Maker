@@ -1,14 +1,18 @@
 LOCATION
 Meadows
-[description of Meadows]
+You are back in the meadow. to see more, enter command 'Long Description'
 START
-[long description]
+You are in the Meadow. There is nothing around you. There is a chest close by. You approach the chest and hear something inside.
+There is nothing to the North of you, and nothing to the West of you.
+There is a Town to the East of you, and Flower Field to the South of you.
 END
 ACTIONS
 Go North : None
 Go East : Town
 Go South : Flower Fields
 Go West : None
+Open Chest : Tentacles pop out of the chest and pull you into the chest. You are now trapped in a magical chest that will flood. This is your demise. : kill
+Take Chest : The chest is now in your inventory : inventory
 END
 
 LOCATION
@@ -51,6 +55,58 @@ Go East : None
 Go South : None
 Go West : Town
 Talk to Blacksmith: You can buy items from the blacksmith. Basic Sword - 100 ; Basic Shield - 100 ; Chainmail - 50; Crafted Stick - 10. He claims he found the stick in the woods and he liked the woodwork.
+END
+
+LOCATION
+Merlin's Tower
+You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+START
+[detailed description]
+END
+ACTIONS
+Go North : None
+Go East : Armory
+Go South : Something
+Go West : Meadows
+END
+
+LOCATION
+Bogs
+You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+START
+[detailed description]
+END
+ACTIONS
+Go North : None
+Go East : Armory
+Go South : Something
+Go West : Meadows
+END
+
+LOCATION
+Troll Bridge
+You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+START
+[detailed description]
+END
+ACTIONS
+Go North : None
+Go East : Armory
+Go South : Something
+Go West : Meadows
+END
+
+LOCATION
+Dark Knight's Castle
+You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+START
+[detailed description]
+END
+ACTIONS
+Go North : None
+Go East : Armory
+Go South : Something
+Go West : Meadows
 END
 
 LAYOUT

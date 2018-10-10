@@ -25,7 +25,6 @@ def addBlackSmithItems(action, allActionsForLocation):
     return
 
 def processTransaction(action, allActionsForLocation, player):
-    print(action)
     item = action.split("Buy ")[1]
     price = allActionsForLocation[action][0]
     if player['money'] < price:
@@ -39,10 +38,26 @@ def processTransaction(action, allActionsForLocation, player):
     print(player['inventory'])
 
 
-def processConsequence(consequence, player):
+def processConsequence(action, consequence, player):
     if len(consequence) > 1:
         if consequence[1] == "kill":
             player['health'] = 0
+        elif consequence[1] == "Inventory":
+            player['inventory'].append(action.split(" "))
+
+def isMagical(item):
+    return True if item in ['Sword of Asphedele', 'Magic Wand'] else False
+
+def attack(enemy, item):
+    weaponDamage = {"Basic Sword": 10, "Basic Shield": 0, "Magic Wand": 60, "Sword of Asphdele": 80}
+    if enemy['name'] == "Dark Knight":
+        if isMagical(item):
+            enemy['health'] = enemy['health'] - (weaponDamage[item]*40)  # Damage suppression 60%
+        else:
+            print("The attack had no effect.")
+    elif enemy['name'] == 'Troll':
+        enemy['health'] = enemy['health'] - weaponDamage[item]
+
 
 
 
@@ -57,7 +72,7 @@ def performAction(action, allActionsForLocation, player):
         else:
             consequence = allActionsForLocation[action]
             print(consequence[0])
-            processConsequence(consequence, player)
+            processConsequence(action , consequence, player)
 
             if action.lower() == "talk to blacksmith":
                 print("Adding Items...")
