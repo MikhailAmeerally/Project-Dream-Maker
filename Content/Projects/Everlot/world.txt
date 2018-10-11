@@ -41,6 +41,7 @@ Go North : None
 Go East : Armory
 Go South : Something
 Go West : Meadows
+Ask What Happened : The townsfolk are very scared, and tell you that a Dark Knight came in and destroyed the town.
 END
 
 LOCATION
@@ -59,15 +60,20 @@ END
 
 LOCATION
 Merlin's Tower
-You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+You are at Merlin's Tower
 START
-[detailed description]
+You approach a Tower in the middle of nowhere and hear some giberish coming from somewhere.
+You follow the sound and find an old man - in a robe that's too short -- with a wand facing a cat on a tree stump.
+He seems to be performing some kind of spell. Then the cat turns into a giant dragon! You don't know what else to do,
+so you start screaming in a high pitched tone, which scared the then-cat-now-dragon and it accidentally let out some gas
+which, for a dragon, was on fire. The old man turns to you and asks you what you want.
 END
 ACTIONS
 Go North : None
 Go East : Armory
 Go South : Something
 Go West : Meadows
+Ask him if he's a wizard : That's right. You just met the most famous wizard of his time. He tells you his name is Merlin. : Add Action - Ask him if he can teach you - He tells you no but offers to give you a magical item instead.
 END
 
 LOCATION
@@ -79,7 +85,7 @@ END
 ACTIONS
 Go North : None
 Go East : Armory
-Go South : Something
+Go South : Troll Bridge
 Go West : Meadows
 END
 
@@ -92,7 +98,7 @@ END
 ACTIONS
 Go North : None
 Go East : Armory
-Go South : Something
+Go South : Merlin's Tower
 Go West : Meadows
 END
 
@@ -110,7 +116,7 @@ Go West : Meadows
 END
 
 LAYOUT
-              Meadows >>> Town >>> Armory
+-------------Meadows >>> Town >>> Armory
               |||||        |||
               |||||        Something
               |||||

@@ -26,7 +26,7 @@ def getLongDescription(fileDescriptor):
     longDescription = ""
     line = fileDescriptor.readline()
     while(line.strip() != "END"):
-        longDescription = longDescription + line.strip()
+        longDescription = longDescription + line.strip() + "\n"
         line = fileDescriptor.readline()
     return longDescription
 

@@ -2,9 +2,11 @@
 def move(direction, allActionsForLocation, player):
     if allActionsForLocation[direction][0] != "None":
         player['location'] = allActionsForLocation[direction][0]
-    return
 
 
+def addAction(consequence, location, world):
+    consequence = consequence.strip().split("-")
+    world[location]['actions'].update({consequence[1].strip(): consequence[2].strip()})
 
 def playerRequestToMove(action):
     return action in ['Go North', 'Go South', 'Go East', 'Go West']
@@ -27,9 +29,14 @@ def addBlackSmithItems(action, allActionsForLocation):
 def processTransaction(action, allActionsForLocation, player):
     item = action.split("Buy ")[1]
     price = allActionsForLocation[action][0]
+
     if player['money'] < price:
         print("Cannot afford item.")
         return
+
+    if item == "Armor":
+        player['health'] = player['health'] + 50
+
     player['money'] = player['money']-price
     player['inventory'].append(item)
     del allActionsForLocation[action]
@@ -38,12 +45,14 @@ def processTransaction(action, allActionsForLocation, player):
     print(player['inventory'])
 
 
-def processConsequence(action, consequence, player):
+def processConsequence(action, consequence, player, world):
     if len(consequence) > 1:
         if consequence[1] == "kill":
             player['health'] = 0
         elif consequence[1] == "Inventory":
             player['inventory'].append(action.split(" "))
+        elif "Add Action" in consequence[1]:
+            addAction(consequence[1], player['location'], world)
 
 def isMagical(item):
     return True if item in ['Sword of Asphedele', 'Magic Wand'] else False
@@ -61,7 +70,7 @@ def attack(enemy, item):
 
 
 
-def performAction(action, allActionsForLocation, player):
+def performAction(action, allActionsForLocation, player, world):
 
     if action in allActionsForLocation.keys():
 
@@ -72,7 +81,7 @@ def performAction(action, allActionsForLocation, player):
         else:
             consequence = allActionsForLocation[action]
             print(consequence[0])
-            processConsequence(action , consequence, player)
+            processConsequence(action, consequence, player, world)
 
             if action.lower() == "talk to blacksmith":
                 print("Adding Items...")

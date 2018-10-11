@@ -15,11 +15,16 @@ def startGame(world, player):
     while player['health'] != 0 and not gameOver:
         displayDescription(player['location'])
         displayActions(list(getLocationActions(player['location']).keys()))
+        updateLocation(player['location'], world)
         userCommand = input("Enter a Command: ")
         if inputIsPlayerAction(userCommand, nonPlayerCommands):
-            performAction(userCommand, getLocationActions(player['location']), player)
+            performAction(userCommand, getLocationActions(player['location']), player, world)
 
 
+
+def updateLocation(location, world):
+    if not world[location]['visited']:
+        world[location]['visited'] = True
 
 def displayDescription(location):
     print(location)
