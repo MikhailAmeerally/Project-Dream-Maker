@@ -1,6 +1,14 @@
 # world
 world = {}
+darkKnight = {"name": "Dark Knight", "health": 200}
 
+
+inventory = ["Wand of Azaroth", "Basic Sword"]
+health = 100
+status = "Knave"
+player_location = ""
+money = 100
+player = {"inventory": inventory, "health": health, "status":status, "location": player_location, "money":money}
 
 def getWorldLayout(fileDescriptor):
     layout = ""

@@ -113,6 +113,7 @@ Go North : None
 Go East : Armory
 Go South : Something
 Go West : Meadows
+Attack Dark Knight with Wraith Master : The Dark Knight stumbles, but seems unfazed.
 END
 
 LAYOUT
