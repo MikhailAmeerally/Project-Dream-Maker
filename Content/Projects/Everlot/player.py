@@ -17,7 +17,7 @@ def addAction(consequence, location, world):
     world[location]['actions'].update({consequence[1].strip(): [consequence[2].strip()]})
 
 def playerRequestToMove(action):
-    return action in ['Go North', 'Go South', 'Go East', 'Go West']
+    return action in ['go north', 'go south', 'go east', 'go west']
 
 def playerRequestToAttack(action):
     return "Attack" in action
@@ -97,7 +97,7 @@ def getEnemyAndItem(action):
 
 def performAction(action, allActionsForLocation, player, world):
 
-    if action in allActionsForLocation.keys():
+    if action.lower() in allActionsForLocation.keys():
 
         if playerRequestToMove(action):
             move(action, allActionsForLocation, player)
