@@ -36,7 +36,6 @@ def addBlackSmithItems(action, allActionsForLocation):
         newAction = "Buy "+dictEntry[0].strip()
         newConsequence = int(dictEntry[1].strip())
         allActionsForLocation.update({newAction : [newConsequence]})
-    removeAction('Talk to Blacksmith', allActionsForLocation)
 
     return
 
@@ -46,17 +45,17 @@ def processTransaction(action, allActionsForLocation, player):
 
     if player['money'] < price:
         print("Cannot afford item.")
-        return
+        return False
 
     if item == "Armor":
         player['health'] = player['health'] + 50
 
     player['money'] = player['money']-price
     player['inventory'].append(item)
-    removeAction(action, allActionsForLocation)
     print("Purchased {0} for {1}".format(item, str(price)))
     print("Adding to inventory...")
     print(player['inventory'])
+    return True
 
 def getItem(action):
     action = action.strip().split(" ")
@@ -64,7 +63,6 @@ def getItem(action):
     return item
 
 def processConsequence(action, consequence, player, world):
-    print(consequence)
     if len(consequence) > 1:
         if consequence[1] == "kill":
             player['health'] = 0
@@ -103,8 +101,10 @@ def performAction(action, allActionsForLocation, player, world):
 
         if playerRequestToMove(action):
             move(action, allActionsForLocation, player)
+            return
         elif playerRequestToBuy(action):
-            processTransaction(action.strip(), allActionsForLocation, player)
+            if not processTransaction(action.strip(), allActionsForLocation, player):
+                return
         elif playerRequestToAttack(action):
             enemy, item = getEnemyAndItem(action)
             attack(enemy, item)
@@ -116,6 +116,7 @@ def performAction(action, allActionsForLocation, player, world):
             if action.lower() == "talk to blacksmith":
                 print("Adding Items...")
                 addBlackSmithItems(consequence[0], allActionsForLocation)
+        removeAction(action, allActionsForLocation)
     else:
         print("Not a valid move in this location.")
 

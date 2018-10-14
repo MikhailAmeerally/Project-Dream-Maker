@@ -30,6 +30,9 @@ def startGame(world, player):
                 and "Basic Sword" in player['inventory']:
             addAction(SpecialCommands.WRAITH_MASTER, player['location'], world)
 
+        if "Chest" in player['inventory'] and "Open Chest" in list(world['Meadows']['actions'].keys()):
+            removeAction("Open Chest", world['Meadows']['actions'])
+
 
 
 def showInventory():

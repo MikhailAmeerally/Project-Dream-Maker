@@ -3,7 +3,7 @@ world = {}
 darkKnight = {"name": "Dark Knight", "health": 200}
 
 
-inventory = ["Wand of Azaroth", "Basic Sword"]
+inventory = ["Wand of Azaroth"]
 health = 100
 status = "Knave"
 player_location = ""
