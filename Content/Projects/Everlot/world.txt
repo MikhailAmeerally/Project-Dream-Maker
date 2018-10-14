@@ -21,6 +21,7 @@ You are in a field of flowers that look strange. They are different colours; som
 START
 You are in a field of flowers that look strange. They are different colours; some are blue, some are red, some are green.
 There is no water anywhere in sight, yet these flowers are thriving.
+There is a specific flower that is out of place. Might be worth investigating.
 END
 ACTIONS
 Smell Flowers : The flower turns into a giant Carnivorous Venus Fly Trap. You now realize why they have been thriving. You have been eaten by the flower : kill
@@ -28,27 +29,33 @@ Go North : Meadows
 Go East : Dark Knight's Castle
 Go South : Troll Bridge
 Go West : Bogs
+Investigate Flower: The flower is definitely out of place, but you don't know why. There is an aura around the flower, and it is the only flower that is wilting.
 END
 
 LOCATION
 Town
-You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+You are in a town that barely looks like a town anymore. Looks like the Dark Knight was here.
 START
-[detailed description]
+You enter a town, and it looks desolate. Most of the buildings have been burned to the ground.
+While others are on the brink of collapse. There is a footstep of a giant creature in the ground.
+The locals are scattered and scared.
 END
 ACTIONS
 Go North : None
 Go East : Armory
-Go South : Something
+Go South : None
 Go West : Meadows
-Ask What Happened : The townsfolk are very scared, and tell you that a Dark Knight came in and destroyed the town.
+Ask What Happened : The townsfolk are very scared, and tell you that a Dark Knight came in and destroyed the town. They also tell you that the Dark Knight sent a dragon.
 END
 
 LOCATION
 Armory
-You enter the armory.
+You are in the armory.
 START
-[longer description]
+You enter the Armory of the town. It is small with weapons everywhere. From Chainmail to Swords and Shields.
+You hear the clanging of metal, and then a sword is thrown in your direction, barely missing your head.
+You cautiously follow the sound of clanging and dodge another sword! You continue, and find the Blacksmith,
+hard at work. Probably scared because of the attack, and is getting ready for the next one.
 END
 ACTIONS
 Go North : None
@@ -69,37 +76,41 @@ so you start screaming in a high pitched tone, which scared the then-cat-now-dra
 which, for a dragon, was on fire. The old man turns to you and asks you what you want.
 END
 ACTIONS
-Go North : None
-Go East : Armory
-Go South : Something
-Go West : Meadows
+Go North : Troll Bridge
+Go East : None
+Go South : None
+Go West : None
 Ask him if he's a wizard : That's right. You just met the most famous wizard of his time. He tells you his name is Merlin. : Add Action - Ask him if he can teach you - He tells you no but offers to give you a magical item instead.
 END
 
 LOCATION
 Bogs
-You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+You are in the Bogs
 START
-[detailed description]
+You walk through a swamp, and stumble and fall into the Bogs. You are now trapped, and trying to find a way out.
+Fortunately, you used the last of a magic potion that was on the ground that ended up burning down all the thorns.
+There is a sound to the South, and the Flower Fields are to the East.
 END
 ACTIONS
 Go North : None
-Go East : Armory
+Go East : Flower Fields
 Go South : Troll Bridge
-Go West : Meadows
+Go West : None
 END
 
 LOCATION
 Troll Bridge
-You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+You are at the Troll Bridge
 START
-[detailed description]
+You come across a Bridge, and attempt to cross it. Suddenly a troll jumps out and tells you you must answer a riddle
+to cross.
 END
 ACTIONS
-Go North : None
-Go East : Armory
-Go South : Merlin's Tower
-Go West : Meadows
+Go North : Bogs
+Go East : None
+Go West : None
+Try to ignore him : Your attempts to go around him are futile, and he kicks you in the shin. Health -50. : HEALTH - 50
+Tell him to say his piece : What is half of two plus two?
 END
 
 LOCATION
@@ -110,10 +121,9 @@ START
 END
 ACTIONS
 Go North : None
-Go East : Armory
-Go South : Something
-Go West : Meadows
-Attack Dark Knight with Wraith Master : The Dark Knight stumbles, but seems unfazed.
+Go East : None
+Go South : None
+Go West : None
 END
 
 LAYOUT

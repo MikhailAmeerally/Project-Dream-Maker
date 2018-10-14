@@ -71,6 +71,11 @@ def processConsequence(action, consequence, player, world):
             addItemToInventory(item, player)
         elif "Add Action" in consequence[1]:
             addAction(consequence[1], player['location'], world)
+        elif "HEALTH" in consequence[1]:
+            health = int(consequence[1].strip().split(" - ")[1])
+            player['health'] = player['health'] - health
+            print("Your Health: {0}".format(player['health']))
+
 
 def isMagical(item):
     return True if item in ['Sword of Asphedele', 'Magic Wand'] else False
