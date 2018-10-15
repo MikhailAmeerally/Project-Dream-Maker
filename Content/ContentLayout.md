@@ -6,15 +6,13 @@ Since this is a beginner course in Python, over a 12 week period the work planne
 
 | Week | Content                            | Assoc. Projects  | Comments              |
 |------|------------------------------------|------------------|-----------------------|
-| 1    | Intro, if, arithmetic.             | PCRS             |No Projects Yet        |
-| 2    | Loops and Lists                    | PCRS, Guess Game |                       |
+| 1    | Intro, arithmetic exprs            | PCRS             |No Projects Yet        |
+| 2    | Conditionals                       | PCRS, Guess Game |                       |
 | 3    | Strings                            | PCRS             |                       |
-| 4    | Strings and Functions              | PCRS, Pig Latin  |                       |
-| 5    | Files, Tuples, Dictionaries        | PCRS, Mad Libs   |                       |
-| 6    | Review Exercises & Begin Text Game | PCRS & Text Game |Game for 3 weeks       |
-| 7    | Intro. To Objects                  | PCRS, Text Game  |Ongoing                |
-| 8    | Classes and Inheritance            | Text Game, PCRS  |Last week for game     |
-| 9    | Inheritance & Composition          | PCRS             |Release Warehouse Wars |
-| 10   | OOP / Review Exercises?            | Warehouse Wars   |Ongoing                |
-| 11   | Sorting                            | Warehouse Wars   |Last Week              |
-| 12   | Not Sure                           | Warehouse Wars   |Hand in and feedback   |
+| 4    | Strings and Loops                  | PCRS, Pig Latin  |                       |
+| 5    | Loops and Lists                    | PCRS, Mad Libs   |                       |
+| 6    | Dictionaries                       | PCRS & Text Game |Game for 3 weeks       |
+| 7    | More Dictionaries                  | PCRS, Text Game  |Ongoing                |
+| 8    | Intro to OOP                       | Warehouse Wars   |Hand in and feedback   |
+| 9    | Continue developing Warehouse Wars | Warehouse Wars   |Maybe don't go past 10 |
+| 10   | Warehouse Wars solution            | Warehouse Wars   | Final week hopefully  |
