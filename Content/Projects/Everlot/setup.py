@@ -2,6 +2,7 @@
 world = {}
 darkKnight = {"name": "Dark Knight", "health": 200}
 
+gameOver = False
 
 inventory = ["Wand of Azaroth"]
 health = 100

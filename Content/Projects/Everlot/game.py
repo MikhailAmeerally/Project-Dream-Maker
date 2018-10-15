@@ -1,6 +1,7 @@
 from setup import *
 from player import *
 from setup import printWelcomeMessage, printInstructions
+import setup
 import SpecialCommands
 
 
@@ -8,14 +9,15 @@ import SpecialCommands
 def startGame(world, player):
     specialCommands = {SpecialCommands.WRAITH_MASTER_CMD: getWraithMaster,
                        SpecialCommands.TROLL_CMD : SpecialCommands.trollMiniGame,
-                       SpecialCommands.WAND_OF_AZAROTH_CMD: SpecialCommands.waterFlower}
+                       SpecialCommands.WAND_OF_AZAROTH_CMD: SpecialCommands.waterFlower,
+                       SpecialCommands.DARK_KNIGHT_CMD: giveChestToDarkKnight}
     printWelcomeMessage()
     printInstructions()
 
-    nonPlayerCommands = {"help": myHelp, "Show World": displayWorld, "inventory": showInventory}
+    nonPlayerCommands = {"help": myHelp, "show world": displayWorld, "inventory": showInventory, "description": showLongDescription}
     player['location'] = list(world.keys())[0]
-    gameOver = False
-    while player['health'] != 0 and not gameOver:
+
+    while player['health'] != 0 and not setup.gameOver:
         displayDescription(player['location'])
         displayActions(list(getLocationActions(player['location']).keys()))
         updateLocation(player['location'], world)
@@ -25,7 +27,7 @@ def startGame(world, player):
 
             ret_val = specialCommands[userCommand]()
 
-            if player['location'] != "Dark Knight's Castle":
+            if player['location'] != "Dark Knight's Castle" and "attack" not in userCommand
                 removeAction(userCommand, world[player['location']]['actions'])
 
             if ret_val:
@@ -36,7 +38,6 @@ def startGame(world, player):
                 if player['location'] == "Flower Fields":
                     player['inventory'].append("Wand of Azaroth")
 
-
         if inputIsPlayerAction(userCommand, nonPlayerCommands):
             performAction(userCommand, getLocationActions(player['location']), player, world)
 
@@ -44,16 +45,26 @@ def startGame(world, player):
 
         # Merlin's Tower Special Command
         if player['location'] == "Merlin's Tower" and "Wand of Azaroth" in player['inventory'] \
-                and "Basic Sword" in player['inventory']:
+                and "basic sword" in player['inventory']:
             addAction(SpecialCommands.WRAITH_MASTER, player['location'], world)
 
-        if "Chest" in player['inventory'] and "Open Chest" in list(world['Meadows']['actions'].keys()):
-            removeAction("Open Chest", world['Meadows']['actions'])
+        if "chest" in player['inventory'] and "open chest" in list(world['Meadows']['actions'].keys()):
+            removeAction("open chest", world['Meadows']['actions'])
 
         if userCommand == "tell him to say his piece" and player['location'] == "Troll Bridge":
             addAction(SpecialCommands.TROLL, "Troll Bridge", world)
             if "try to ignore him" in list(world["Troll Bridge"]["actions"].keys()):
                 removeAction("try to ignore him", world["Troll Bridge"]["actions"])
+
+        if player['location'] == "Dark Knight's Castle" and "chest" in player['inventory']:
+            addAction(SpecialCommands.DARK_KNIGHT, player['location'], world)
+            print(world[player['location']]['actions'])
+
+    if player['health'] > 0:
+        print("YOU WON!")
+    else:
+        print("LOSER")
+
 
 
 
@@ -77,6 +88,10 @@ def getWraithMaster():
     addItemToInventory('Wraith Master', player)
     return True
 
+def giveChestToDarkKnight():
+    removeItemFromInventory("chest", player)
+    setup.gameOver = True
+    return True
 
 def displayActions(locations):
     for i in locations:
@@ -90,6 +105,9 @@ def displayWorld():
 
 def myHelp():
     print("This is a help function.")
+
+def showLongDescription():
+    print(world[player['location']]['long description'])
 
 def inputIsPlayerAction(cmd, nonPlayerCommands):
     if cmd in list(nonPlayerCommands.keys()):
