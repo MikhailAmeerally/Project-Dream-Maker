@@ -12,18 +12,25 @@ while(True):
         break
     else:
         phrase = phrase.strip().split()
-        a = None
-        b = None
+        a = ""
+        b = ""
         operator = None
         aFlag = True
         for i in phrase:
-            if i not in ['+', '-', '*', '/']:
+            if i not in ["+", "-", "*", "/"]:
                 if aFlag:
-                    a = int(i)
+                    a = a + i
+                    print(a)
+                else:
+                    b = b + i
+                    print(b)
+            else:
+                if not operator:
+                    operator = i
+                    a = int(a.strip())
                     aFlag = False
                 else:
-                    b = int(i)
-                    a = evaluate(a, b, operator)
-            else:
-                operator = i
+                    b = b + i
+        b = int(b.strip())
+        a = evaluate(a, b, operator)
         print(a)
