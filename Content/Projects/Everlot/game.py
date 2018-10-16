@@ -27,7 +27,7 @@ def startGame(world, player):
 
             ret_val = specialCommands[userCommand]()
 
-            if player['location'] != "Dark Knight's Castle" and "attack" not in userCommand
+            if player['location'] != "Dark Knight's Castle" and "attack" not in userCommand:
                 removeAction(userCommand, world[player['location']]['actions'])
 
             if ret_val:
