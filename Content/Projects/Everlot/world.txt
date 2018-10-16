@@ -1,0 +1,141 @@
+LOCATION
+Meadows
+You are back in the meadow. to see more, enter command 'Long Description'
+START
+You are in the Meadow. There is nothing around you. There is a chest close by. You approach the chest and hear something inside.
+There is nothing to the North of you, and nothing to the West of you.
+There is a Town to the East of you, and Flower Field to the South of you.
+END
+ACTIONS
+Go North : None
+Go East : Town
+Go South : Flower Fields
+Go West : None
+Open Chest : Tentacles pop out of the chest and pull you into the chest. You are now trapped in a magical chest that will flood. This is your demise. : kill
+Take Chest : The chest is now in your inventory : inventory
+END
+
+LOCATION
+Flower Fields
+You are in a field of flowers that look strange. They are different colours; some are blue, some are red, some are green.
+START
+You are in a field of flowers that look strange. They are different colours; some are blue, some are red, some are green.
+There is no water anywhere in sight, yet these flowers are thriving.
+There is a specific flower that is out of place. Might be worth investigating.
+END
+ACTIONS
+Smell Flowers : The flower turns into a giant Carnivorous Venus Fly Trap. You now realize why they have been thriving. You have been eaten by the flower : kill
+Go North : Meadows
+Go East : Dark Knight's Castle
+Go South : Troll Bridge
+Go West : Bogs
+Investigate Flower: The flower is definitely out of place, but you don't know why. There is an aura around the flower, and it is the only flower that is wilting.
+END
+
+LOCATION
+Town
+You are in a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+START
+You enter a town, and it looks desolate. Most of the buildings have been burned to the ground.
+While others are on the brink of collapse. There is a footstep of a giant creature in the ground.
+The locals are scattered and scared.
+END
+ACTIONS
+Go North : None
+Go East : Armory
+Go South : None
+Go West : Meadows
+Ask What Happened : The townsfolk are very scared, and tell you that a Dark Knight came in and destroyed the town. They also tell you that the Dark Knight sent a dragon.
+END
+
+LOCATION
+Armory
+You are in the armory.
+START
+You enter the Armory of the town. It is small with weapons everywhere. From Chainmail to Swords and Shields.
+You hear the clanging of metal, and then a sword is thrown in your direction, barely missing your head.
+You cautiously follow the sound of clanging and dodge another sword! You continue, and find the Blacksmith,
+hard at work. Probably scared because of the attack, and is getting ready for the next one.
+END
+ACTIONS
+Go North : None
+Go East : None
+Go South : None
+Go West : Town
+Talk to Blacksmith: You can buy items from the blacksmith. Basic Sword - 100 ; Basic Shield - 100 ; Chainmail - 50; Crafted Stick - 10. He claims he found the stick in the woods and he liked the woodwork.
+END
+
+LOCATION
+Merlin's Tower
+You are at Merlin's Tower
+START
+You approach a Tower in the middle of nowhere and hear some giberish coming from somewhere.
+You follow the sound and find an old man - in a robe that's too short -- with a wand facing a cat on a tree stump.
+He seems to be performing some kind of spell. Then the cat turns into a giant dragon! You don't know what else to do,
+so you start screaming in a high pitched tone, which scared the then-cat-now-dragon and it accidentally let out some gas
+which, for a dragon, was on fire. The old man turns to you and asks you what you want.
+END
+ACTIONS
+Go North : Troll Bridge
+Go East : None
+Go South : None
+Go West : None
+Ask him if he's a wizard : That's right. You just met the most famous wizard of his time. He tells you his name is Merlin. : Add Action - Ask him if he can teach you - He tells you no but offers to give you a magical item instead.
+END
+
+LOCATION
+Bogs
+You are in the Bogs
+START
+You walk through a swamp, and stumble and fall into the Bogs. You are now trapped, and trying to find a way out.
+Fortunately, you used the last of a magic potion that was on the ground that ended up burning down all the thorns.
+There is a sound to the South, and the Flower Fields are to the East.
+END
+ACTIONS
+Go North : None
+Go East : Flower Fields
+Go South : Troll Bridge
+Go West : None
+END
+
+LOCATION
+Troll Bridge
+You are at the Troll Bridge
+START
+You come across a Bridge, and attempt to cross it. Suddenly a troll jumps out and tells you you must answer a riddle
+to cross.
+END
+ACTIONS
+Go North : Bogs
+Go East : None
+Go West : None
+Try to ignore him : Your attempts to go around him are futile, and he kicks you in the shin. Health -50. : HEALTH - 50
+Tell him to say his piece : What is half of two plus two?
+END
+
+LOCATION
+Dark Knight's Castle
+You enter a town that barely looks like a town anymore. Looks like the Dark Knight was here.
+START
+[detailed description]
+END
+ACTIONS
+Go North : None
+Go East : None
+Go South : None
+Go West : None
+END
+
+LAYOUT
+-------------Meadows >>> Town >>> Armory
+              |||||        |||
+              |||||        Something
+              |||||
+  Bogs <<<<<<Flower Fields >>>>>> Dark Knight's Castle
+  |||          //
+  |||        //
+  |||      //
+  Troll Bridge
+  |||
+  Merlin's Tower
+END
