@@ -7,7 +7,7 @@ Since this is a beginner course in Python, over a 12 week period the work planne
 | Week | Content                            | Assoc. Projects  | Comments              |
 |------|------------------------------------|------------------|-----------------------|
 | 1    | Intro, arithmetic exprs            | PCRS             |No Projects Yet        |
-| 2    | Conditionals                       | PCRS, Guess Game |                       |
+| 2    | Functions & Conditionals           | PCRS, Guess Game |                       |
 | 3    | Strings                            | PCRS             |                       |
 | 4    | Strings and Loops                  | PCRS, Pig Latin  |                       |
 | 5    | Loops and Lists                    | PCRS, Mad Libs   |                       |
